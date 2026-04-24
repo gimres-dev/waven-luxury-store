@@ -1,0 +1,63 @@
+name: t_store
+description: "A professional Flutter eCommerce application UI."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Icons
+  cupertino_icons: ^1.0.6
+  iconsax: ^0.0.8
+
+  # State Management & Local Storage
+  get: ^4.6.6
+  get_storage: ^2.1.1  # <-- Added this critical package
+
+  # UI Components
+  readmore: ^3.0.0
+  flutter_rating_bar: ^4.0.1
+  smooth_page_indicator: ^1.1.0
+  carousel_slider_plus: ^7.1.1
+  
+
+  # Utilities
+  http: ^1.1.0
+  intl: ^0.18.1
+  logger: ^2.0.2
+  url_launcher: ^6.1.14
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logos/
+    - assets/icons/categories/
+    - assets/icons/payment_methods/
+    - assets/images/banners/
+    - assets/images/products/
+    - assets/images/on_boarding_images/
+    - assets/images/animations/
+    - assets/images/user/
+    - assets/images/reviews/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
