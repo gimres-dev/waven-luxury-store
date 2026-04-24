@@ -9,15 +9,14 @@ class TOverallProductRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        
         Expanded(
-          flex: 3, 
+          flex: 3,
           child: Text(
-            '4.8', 
+            '4.8',
             style: Theme.of(context).textTheme.displayLarge?.copyWith(
-              color: TColors.primary, 
-              fontWeight: FontWeight.w600,
-            ),
+                  color: TColors.primary,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
         ),
         const Expanded(
@@ -38,7 +37,8 @@ class TOverallProductRating extends StatelessWidget {
 }
 
 class TRatingProgressIndicator extends StatelessWidget {
-  const TRatingProgressIndicator({super.key, required this.text, required this.value});
+  const TRatingProgressIndicator(
+      {super.key, required this.text, required this.value});
 
   final String text;
   final double value;
@@ -46,12 +46,15 @@ class TRatingProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [     
+      children: [
         Expanded(
-          flex: 1, 
+          flex: 1,
           child: Text(
-            text, 
-            style: Theme.of(context).textTheme.bodyMedium?.apply(color: TColors.darkGrey),
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.apply(color: TColors.darkGrey),
           ),
         ),
         Expanded(
@@ -61,9 +64,9 @@ class TRatingProgressIndicator extends StatelessWidget {
             child: LinearProgressIndicator(
               value: value,
               minHeight: 8,
-              backgroundColor: TColors.grey.withOpacity(0.2), 
-              borderRadius: BorderRadius.circular(10),     
-              valueColor: const AlwaysStoppedAnimation(TColors.secondary), 
+              backgroundColor: TColors.grey.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(10),
+              valueColor: const AlwaysStoppedAnimation(TColors.secondary),
             ),
           ),
         ),

@@ -39,9 +39,11 @@ class TCouponCode extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                foregroundColor: dark ? TColors.white.withOpacity(0.5) : TColors.dark.withOpacity(0.5),
-                backgroundColor: TColors.grey.withOpacity(0.2),
-                side: BorderSide(color: TColors.grey.withOpacity(0.1)),
+                foregroundColor: dark
+                    ? TColors.white.withValues(alpha: 0.5)
+                    : TColors.dark.withValues(alpha: 0.5),
+                backgroundColor: TColors.grey.withValues(alpha: 0.2),
+                side: BorderSide(color: TColors.grey.withValues(alpha: 0.1)),
               ),
               child: const Text('Apply'),
             ),

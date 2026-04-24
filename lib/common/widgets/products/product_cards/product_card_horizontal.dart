@@ -38,7 +38,8 @@ class TProductCardHorizontal extends StatelessWidget {
                 const SizedBox(
                   height: 120,
                   width: 120,
-                  child: TRoundedImage(imageUrl: TImages.productImage1, applyImageRadius: true),
+                  child: TRoundedImage(
+                      imageUrl: TImages.productImage1, applyImageRadius: true),
                 ),
 
                 /// -- Sale Tag
@@ -46,9 +47,14 @@ class TProductCardHorizontal extends StatelessWidget {
                   top: 12,
                   child: TRoundedContainer(
                     radius: TSizes.sm,
-                    backgroundColor: TColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
-                    child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
+                    backgroundColor: TColors.secondary.withValues(alpha: 0.8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: TSizes.sm, vertical: TSizes.xs),
+                    child: Text('25%',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: TColors.black)),
                   ),
                 ),
 
@@ -72,14 +78,14 @@ class TProductCardHorizontal extends StatelessWidget {
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TProductTitleText(title: 'Green Nike Half Sleeves Shirt', smallSize: true),
+                      TProductTitleText(
+                          title: 'Green Nike Half Sleeves Shirt',
+                          smallSize: true),
                       SizedBox(height: TSizes.spaceBtwItems / 2),
                       TBrandTitleWithVerifiedIcon(title: 'Nike'),
                     ],
                   ),
-
                   const Spacer(),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -92,13 +98,15 @@ class TProductCardHorizontal extends StatelessWidget {
                           color: TColors.dark,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(TSizes.productImageRadius),
+                            bottomRight:
+                                Radius.circular(TSizes.productImageRadius),
                           ),
                         ),
                         child: const SizedBox(
                           width: TSizes.iconLg * 1.2,
                           height: TSizes.iconLg * 1.2,
-                          child: Center(child: Icon(Iconsax.add, color: TColors.white)),
+                          child: Center(
+                              child: Icon(Iconsax.add, color: TColors.white)),
                         ),
                       ),
                     ],

@@ -26,7 +26,7 @@ class TUserProfileTile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 90,
                 fontWeight: FontWeight.bold,
-                color: TColors.white.withOpacity(0.04),
+                color: TColors.white.withValues(alpha: 0.04),
               ),
             ),
           ),
@@ -39,7 +39,7 @@ class TUserProfileTile extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: TColors.white.withOpacity(0.10),
+                  color: TColors.white.withValues(alpha: 0.10),
                   width: 1.2,
                 ),
               ),
@@ -54,7 +54,7 @@ class TUserProfileTile extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: TColors.white.withOpacity(0.06),
+                  color: TColors.white.withValues(alpha: 0.06),
                   width: 0.8,
                 ),
               ),
@@ -70,7 +70,7 @@ class TUserProfileTile extends StatelessWidget {
                 height: 12,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: TColors.secondary.withOpacity(0.45),
+                    color: TColors.secondary.withValues(alpha: 0.45),
                     width: 1.0,
                   ),
                 ),
@@ -99,7 +99,7 @@ class TUserProfileTile extends StatelessWidget {
                 ),
               ],
             ),
-          ),       
+          ),
           ListTile(
             leading: const TCircularImage(
               image: TImages.user,
@@ -128,7 +128,8 @@ class TUserProfileTile extends StatelessWidget {
                 const SizedBox(height: TSizes.xs),
                 Row(
                   children: [
-                    const Icon(Iconsax.award, color: TColors.secondary, size: 14),
+                    const Icon(Iconsax.award,
+                        color: TColors.secondary, size: 14),
                     const SizedBox(width: TSizes.xs),
                     Text(
                       'WAVEN Elite Member',
@@ -150,13 +151,14 @@ class TUserProfileTile extends StatelessWidget {
       ),
     );
   }
+
   Widget _dot(double size, double opacity) {
     return Container(
       width: size,
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: TColors.white.withOpacity(opacity),
+        color: TColors.white.withValues(alpha: opacity),
       ),
     );
   }

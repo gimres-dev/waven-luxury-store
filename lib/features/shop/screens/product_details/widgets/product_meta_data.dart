@@ -26,14 +26,22 @@ class TProductMetaData extends StatelessWidget {
             /// Sale Tag
             TRoundedContainer(
               radius: TSizes.sm,
-              backgroundColor: TColors.secondary.withOpacity(0.8),
+              backgroundColor: TColors.secondary.withValues(alpha: 0.8),
               padding: const EdgeInsets.all(TSizes.xs),
-              child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
+              child: Text('25%',
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge!
+                      .apply(color: TColors.black)),
             ),
             const SizedBox(width: TSizes.spaceBtwItems),
 
             /// Price
-            Text('\$250', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough)),
+            Text('\$250',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .apply(decoration: TextDecoration.lineThrough)),
             const SizedBox(width: TSizes.spaceBtwItems),
             const TProductPriceText(price: '175', isLarge: true),
           ],
@@ -63,7 +71,8 @@ class TProductMetaData extends StatelessWidget {
               height: 32,
               overlayColor: darkMode ? TColors.white : TColors.black,
             ),
-            const TBrandTitleWithVerifiedIcon(title: 'waven', brandTextSize: TextSizes.medium),
+            const TBrandTitleWithVerifiedIcon(
+                title: 'waven', brandTextSize: TextSizes.medium),
           ],
         ),
       ],

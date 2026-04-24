@@ -9,18 +9,17 @@ class TVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = TColors.white,
-    this.backgroundColor, 
+    this.backgroundColor,
     this.onTap,
   });
 
   final String image, title;
   final Color textColor;
-  final Color? backgroundColor; 
+  final Color? backgroundColor;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
@@ -34,9 +33,11 @@ class TVerticalImageText extends StatelessWidget {
               height: 56,
               padding: const EdgeInsets.all(TSizes.sm * 1.5),
               decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? TColors.primary : TColors.white),
+                color:
+                    backgroundColor ?? (dark ? TColors.primary : TColors.white),
                 borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: TColors.secondary.withOpacity(0.2), width: 1),
+                border: Border.all(
+                    color: TColors.secondary.withValues(alpha: 0.2), width: 1),
               ),
               child: Center(
                 child: Image(
@@ -53,7 +54,7 @@ class TVerticalImageText extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .labelMedium
-                    ?.apply(color: textColor, fontWeightDelta: 1), 
+                    ?.apply(color: textColor, fontWeightDelta: 1),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 textAlign: TextAlign.center,

@@ -21,10 +21,14 @@ class TSingleAddress extends StatelessWidget {
       width: double.infinity,
       showBorder: true,
       padding: const EdgeInsets.all(TSizes.md),
-      backgroundColor: selectedAddress ? TColors.primary.withOpacity(0.5) : Colors.transparent,
-      borderColor: selectedAddress 
-          ? Colors.transparent 
-          : dark ? TColors.darkerGrey : TColors.grey,
+      backgroundColor: selectedAddress
+          ? TColors.primary.withValues(alpha: 0.5)
+          : Colors.transparent,
+      borderColor: selectedAddress
+          ? Colors.transparent
+          : dark
+              ? TColors.darkerGrey
+              : TColors.grey,
       margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
       child: Stack(
         children: [
@@ -34,12 +38,14 @@ class TSingleAddress extends StatelessWidget {
             top: 0,
             child: Icon(
               selectedAddress ? Iconsax.tick_circle5 : null,
-              color: selectedAddress 
-                  ? dark ? TColors.light : TColors.dark 
+              color: selectedAddress
+                  ? dark
+                      ? TColors.light
+                      : TColors.dark
                   : null,
             ),
           ),
-          
+
           /// Address Details
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

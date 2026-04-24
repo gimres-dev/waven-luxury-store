@@ -25,14 +25,14 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                   top: -150,
                   right: -250,
                   child: TCircularContainer(
-                    backgroundColor: TColors.secondary.withOpacity(0.1),
+                    backgroundColor: TColors.secondary.withValues(alpha: 0.1),
                   ),
                 ),
                 Positioned(
                   top: 100,
                   right: -300,
                   child: TCircularContainer(
-                    backgroundColor: TColors.secondary.withOpacity(0.1),
+                    backgroundColor: TColors.secondary.withValues(alpha: 0.1),
                   ),
                 ),
                 Positioned(
@@ -44,7 +44,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: TColors.white.withOpacity(0.10),
+                        color: TColors.white.withValues(alpha: 0.10),
                         width: 1.2,
                       ),
                     ),
@@ -59,7 +59,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: TColors.white.withOpacity(0.06),
+                        color: TColors.white.withValues(alpha: 0.06),
                         width: 0.8,
                       ),
                     ),
@@ -75,7 +75,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                       height: 12,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: TColors.secondary.withOpacity(0.45),
+                          color: TColors.secondary.withValues(alpha: 0.45),
                           width: 1.0,
                         ),
                       ),
@@ -113,7 +113,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 90,
                       fontWeight: FontWeight.bold,
-                      color: TColors.white.withOpacity(0.04),
+                      color: TColors.white.withValues(alpha: 0.04),
                     ),
                   ),
                 ),
@@ -134,7 +134,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: TColors.white.withOpacity(opacity),
+        color: TColors.white.withValues(alpha: opacity),
       ),
     );
   }
