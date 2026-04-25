@@ -31,7 +31,7 @@ class TBrandCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center, 
           children: [
             
-            TCircularImage(
+            const TCircularImage(
               isNetworkImage: false,
               image: TImages.clothIcon,
               width: 45, 

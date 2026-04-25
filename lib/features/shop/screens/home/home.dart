@@ -27,16 +27,16 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// Appbar
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const THomeAppBar(),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                   TSearchContainer(
                     text: 'Search in Store',                                     
                     showBorder: true,        
                     showBackground: true, 
                     onTap: () => Get.to(() => const SearchScreen()), 
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),                 
-                  Padding(
+                  const SizedBox(height: TSizes.spaceBtwSections),                 
+                  const Padding(
                     padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),
