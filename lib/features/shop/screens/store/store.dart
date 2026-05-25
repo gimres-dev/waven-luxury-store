@@ -1,0 +1,124 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:t_store/common/widgets/appbar/tabbar.dart';
+import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:t_store/common/widgets/layouts/grid_layout.dart';
+import 'package:t_store/common/widgets/brand/brand_card.dart';
+import 'package:t_store/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/controllers/brand_controller.dart';
+import 'package:t_store/features/shop/controllers/category_controller.dart';
+import 'package:t_store/features/shop/screens/store/widgets/category_tab.dart';
+import 'package:t_store/utils/constants/colors.dart';
+import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
+
+class StoreScreen extends StatelessWidget {
+  const StoreScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final categoryController = CategoryController.instance;
+    final brandController = Get.put(BrandController());
+
+    return Obx(() {
+      final categories = categoryController.allCategories;
+
+      if (categoryController.isLoading.value) {
+        return const Scaffold(
+          body: Center(child: CircularProgressIndicator()),
+        );
+      }
+
+      final tabCount = categories.isEmpty ? 1 : categories.length;
+
+      return DefaultTabController(
+        length: tabCount,
+        child: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text('Store',
+                style: Theme.of(context).textTheme.headlineMedium),
+            actions: [
+              TCartCounterIcon(onPressed: () {}),
+              const SizedBox(width: 8),
+            ],
+          ),
+          body: NestedScrollView(
+            headerSliverBuilder: (_, innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  automaticallyImplyLeading: false,
+                  pinned: true,
+                  floating: true,
+                  expandedHeight: 440,
+                  backgroundColor: THelperFunctions.isDarkMode(context)
+                      ? TColors.black
+                      : TColors.white,
+                  flexibleSpace: Padding(
+                    padding: const EdgeInsets.all(TSizes.defaultSpace),
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        const SizedBox(height: TSizes.spaceBtwItems),
+                        const TSearchContainer(
+                          text: 'Search in Store',
+                          showBorder: true,
+                          showBackground: false,
+                          padding: EdgeInsets.zero,
+                        ),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+                        TSectionHeading(
+                            title: 'Featured Brands', onPressed: () {}),
+                        const SizedBox(height: TSizes.spaceBtwItems / 1.5),
+
+                        // ✅ Real brands from Firebase
+                        Obx(() {
+                          if (brandController.isLoading.value) {
+                            return const SizedBox(
+                              height: 80,
+                              child: Center(child: CircularProgressIndicator()),
+                            );
+                          }
+                          if (brandController.featuredBrands.isEmpty) {
+                            return const SizedBox(
+                              height: 80,
+                              child: Center(child: Text('No brands found')),
+                            );
+                          }
+                          return TGridLayout(
+                            itemCount: brandController.featuredBrands.length,
+                            mainAxisExtent: 80,
+                            itemBuilder: (_, index) => TBrandCard(
+                              showBorder: true,
+                              brand: brandController.featuredBrands[index],
+                            ),
+                          );
+                        }),
+                      ],
+                    ),
+                  ),
+                  bottom: TTabBar(
+                    tabs: categories.isEmpty
+                        ? [const Tab(child: Text('All'))]
+                        : categories
+                            .map((c) => Tab(child: Text(c.name)))
+                            .toList(),
+                  ),
+                ),
+              ];
+            },
+            body: TabBarView(
+              children: categories.isEmpty
+                  ? [const Center(child: Text('No categories yet.'))]
+                  : categories
+                      .map((c) => TCategoryTab(category: c))
+                      .toList(),
+            ),
+          ),
+        ),
+      );
+    });
+  }
+}
