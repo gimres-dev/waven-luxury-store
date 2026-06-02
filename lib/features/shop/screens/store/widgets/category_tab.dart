@@ -35,9 +35,19 @@ class TCategoryTab extends StatelessWidget {
                 if (productController.isLoading.value) {
                   return const Center(child: CircularProgressIndicator());
                 }
-                final products = productController.featuredProducts;
+
+                // ✅ Filter products by this category's ID
+                final products = productController.featuredProducts
+                    .where((p) => p.categoryId == category.id)
+                    .toList();
+
                 if (products.isEmpty) {
-                  return const Center(child: Text('No products found.'));
+                  return const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text('No products in this category yet.'),
+                    ),
+                  );
                 }
                 return TGridLayout(
                   itemCount: products.length,
@@ -45,7 +55,8 @@ class TCategoryTab extends StatelessWidget {
                     final product = products[index];
                     return TProductCardVertical(
                       product: product,
-                      onTap: () => Get.to(() => ProductDetailScreen(product: product)),
+                      onTap: () => Get.to(
+                          () => ProductDetailScreen(product: product)),
                     );
                   },
                 );

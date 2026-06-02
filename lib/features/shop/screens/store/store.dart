@@ -8,6 +8,7 @@ import 'package:t_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/shop/controllers/brand_controller.dart';
 import 'package:t_store/features/shop/controllers/category_controller.dart';
+import 'package:t_store/features/shop/screens/brand/brand_products.dart';
 import 'package:t_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -73,7 +74,6 @@ class StoreScreen extends StatelessWidget {
                             title: 'Featured Brands', onPressed: () {}),
                         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
-                        // ✅ Real brands from Firebase
                         Obx(() {
                           if (brandController.isLoading.value) {
                             return const SizedBox(
@@ -93,6 +93,10 @@ class StoreScreen extends StatelessWidget {
                             itemBuilder: (_, index) => TBrandCard(
                               showBorder: true,
                               brand: brandController.featuredBrands[index],
+                              // ✅ Added onTap
+                              onTap: () => Get.to(() => BrandProductsScreen(
+                                brand: brandController.featuredBrands[index],
+                              )),
                             ),
                           );
                         }),
